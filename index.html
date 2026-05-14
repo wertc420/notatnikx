@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phone Notes</title>
+  <title>Notatnik Telefoniczny</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
@@ -117,17 +117,17 @@
 <div class="phone">
 
   <div class="top-bar">
-    <h2>📝 Notatki</h2>
+    <h2>📝 Mój Notatnik</h2>
     <button id="themeBtn" class="btn btn-dark">🌙</button>
   </div>
 
   <div class="mb-3">
-    <input type="text" id="searchInput" class="form-control" placeholder="Szukaj notatki...">
+    <input type="text" id="searchInput" class="form-control" placeholder="Wyszukaj notatkę...">
   </div>
 
   <form id="loginForm" class="mb-4">
-    <input type="email" name="email" class="form-control" placeholder="Email">
-    <input type="password" name="password" class="form-control" placeholder="Hasło">
+    <input type="email" name="email" class="form-control" placeholder="Adres email">
+    <input type="password" name="password" class="form-control" placeholder="Hasło użytkownika">
     <button class="btn btn-warning w-100">Zaloguj</button>
   </form>
 
@@ -167,10 +167,10 @@ $(document).ready(function() {
     language: {
       search: 'Szukaj:',
       zeroRecords: 'Brak notatek',
-      info: 'Pokazano _TOTAL_ notatek',
+      info: 'Wyświetlono _TOTAL_ notatek',
       paginate: {
-        next: 'Dalej',
-        previous: 'Wstecz'
+        next: 'Następna',
+        previous: 'Poprzednia'
       }
     }
   });
@@ -191,7 +191,7 @@ $(document).ready(function() {
       password: 'Hasło minimum 5 znaków'
     },
     submitHandler: function() {
-      alert('Zalogowano pomyślnie');
+      alert('Pomyślnie zalogowano do aplikacji!');
     }
   });
 
@@ -206,7 +206,7 @@ $(document).ready(function() {
     const content = $('#content').val();
 
     if(title === '' || content === '') {
-      alert('Wypełnij wszystkie pola');
+      alert('Uzupełnij wszystkie pola formularza!');
       return;
     }
 
@@ -247,8 +247,8 @@ $(document).ready(function() {
   $(document).on('click', '.editBtn', function() {
     const note = $(this).closest('.note');
 
-    const newTitle = prompt('Edytuj tytuł', note.find('.note-title').text());
-    const newContent = prompt('Edytuj treść', note.find('.note-content').text());
+    const newTitle = prompt('Nowy tytuł notatki', note.find('.note-title').text());
+    const newContent = prompt('Nowa treść notatki', note.find('.note-content').text());
 
     note.find('.note-title').text(newTitle);
     note.find('.note-content').html(newContent);
